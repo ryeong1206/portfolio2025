@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// yarn add sass
+// yarn add react-router-dom
+// yarn add react-icons
+// yarn add react-bootstrap-bootstrap
+
+import './App.scss';
+
+import { Routes ,Route } from 'react-router-dom';
+import { Provider } from './Context';
+import Home from './Home';
+import Project from './component/Project';
+import ProjectDetail from './component/ProjectDetail';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider>
+      <ScrollToTop/>
+        <Routes>
+          <Route exact path='/' Component={Home}/>
+          <Route path='/Project' Component={Project}/>
+          <Route path='/ProjectDetail/:id' Component={ProjectDetail}/>
+        </Routes>
+    </Provider>
   );
 }
 

@@ -1,0 +1,71 @@
+
+button{
+    background-color: transparent;
+}
+
+
+.projectOverview{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    >div{
+        width: 49.33%;
+    }
+
+    .overviewImage{
+        position: relative;
+        img{
+            width: 100%;
+        }
+    }
+    .overviewDetails{
+        p{
+            margin-bottom: 1.5rem;
+        }
+        ul{
+            margin-bottom: 2.5rem;
+            li{
+                display: flex;
+                justify-content: start;
+                // margin-bottom: 1.5rem;
+                :first-child{
+                    margin-right: 1.5rem;
+                }
+            }
+        }
+        .button{
+            button{
+                margin-right: 2.5rem;
+            }
+        }
+    }
+}
+
+.projectGallery{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    li{
+        width: 49.33%;
+        margin-bottom: 1.5rem;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.projectNavigation{
+    display: flex;
+    justify-content: space-between;
+    a{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        p{
+
+        }
+    }
+}

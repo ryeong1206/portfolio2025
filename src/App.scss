@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+ul, li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body{
+  background-color: #222;
+  padding: 4rem;
+  box-sizing: border-box;
+  @media (max-width: 1200px) {
+    padding: 0;
+  }
+}
+button{
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.App {
+  height: 100%;
+}
+img{
+  width: 100%;
+  display: block;
+}
+
+//
+.mb80{
+  margin-bottom: 5rem;
+  @media (max-width: 768px) {
+    margin-bottom: 4rem;
+  }
+}
+.mb40{
+  margin-bottom: 2.5rem;
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+.mb24{
+  margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
+}
+.mb16{
+  margin-bottom: 1rem;
+  @media (max-width: 768px) {
+    margin-bottom: 0.75rem;
+  }
+}
+.mr16{
+  margin-right: 1rem;
+}
+
+.pt24{
+  padding-top: 1.5rem;
+  @media (max-width: 768px) {
+    padding-top: 1rem;
+  }
+}
+
+.pt40{
+  padding-top: 2.5rem;
+  @media (max-width: 768px) {
+    padding-top: 2rem;
+  }
+}
