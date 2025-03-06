@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ryeong1206/portfolio2025.git/static/css/main.478cffde.css",
-    "main.js": "/ryeong1206/portfolio2025.git/static/js/main.f6f0d040.js",
+    "main.js": "/ryeong1206/portfolio2025.git/static/js/main.01f96aa1.js",
     "index.html": "/ryeong1206/portfolio2025.git/index.html",
     "main.478cffde.css.map": "/ryeong1206/portfolio2025.git/static/css/main.478cffde.css.map",
-    "main.f6f0d040.js.map": "/ryeong1206/portfolio2025.git/static/js/main.f6f0d040.js.map"
+    "main.01f96aa1.js.map": "/ryeong1206/portfolio2025.git/static/js/main.01f96aa1.js.map"
   },
   "entrypoints": [
     "static/css/main.478cffde.css",
-    "static/js/main.f6f0d040.js"
+    "static/js/main.01f96aa1.js"
   ]
 }
