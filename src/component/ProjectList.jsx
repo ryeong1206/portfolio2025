@@ -12,7 +12,6 @@ const formatDate = (date) => {
 }
 
 export function Item({project}) {
-    const navigate = useNavigate();
     function goToSite () {window.open(project.siteLink, '_blank')}
 
     return (

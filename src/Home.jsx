@@ -2,7 +2,7 @@ import React from "react";
 
 import './App.scss';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Inner, Title, SubTitle, Text, BtnProject, Header } from "./styles/Styles";
 
 // import ReactPageScroller from "react-page-scroller";

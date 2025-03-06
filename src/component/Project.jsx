@@ -1,4 +1,4 @@
-import { Title, Inner, BtnMenu, TextB, Header } from "../styles/Styles"
+import { Title, Inner, Header } from "../styles/Styles"
 import { Link } from "react-router-dom"
 import ProjectList from "./ProjectList"
 import { useData } from "../Context"
