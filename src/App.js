@@ -16,11 +16,11 @@ function App() {
   return (
     <Provider>
       <ScrollToTop/>
-        <Routes>
-          <Route exact path='/' Component={Home}/>
-          <Route path='/Project' Component={Project}/>
-          <Route path='/ProjectDetail/:id' Component={ProjectDetail}/>
-        </Routes>
+      <Routes>
+        <Route path='/' Component={Home}/>
+        <Route path='/Project' Component={Project}/>
+        <Route path='/ProjectDetail/:id' Component={ProjectDetail}/>
+      </Routes>
     </Provider>
   );
 }

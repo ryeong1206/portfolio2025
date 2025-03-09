@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useData } from '../Context';
-import { Inner, Header, Title, BtnArrow, BtnSite, MarkWrapper, MarkItem, Text } from "../styles/Styles" ;
-import { EmptySpace, ProjectFunctions, ProjectGallery, ProjectInfo, ProjectNavigation, ProjectPreview } from "./ProjectStyles" ;
-import ImageModal from './ImageModal';
+import { useData } from '../../Context';
+import { Inner, Header, Title, BtnArrow, BtnSite, MarkWrapper, MarkItem, Text } from "../../styles/Styles" ;
+import { EmptySpace, ProjectFunctions, ProjectGallery, ProjectInfo, ProjectNavigation, ProjectPreview } from "../ProjectStyles" ;
+import ImageModal from '../ImageModal';
 
 
 const formatDate = (date) => {
@@ -13,28 +13,34 @@ const formatDate = (date) => {
 }
 
 function ProjectDetail() {
-    //URL에서 id 가져오기
-    const {id} = useParams();
-    
-    // 프로젝트 데이터 가져오기
+    const {id} = useParams(); //URL에서 id 가져오기
     const { ProjectData } = useData();
 
-    // 리스트 완료일순 정렬
-    const sortedProjects = [...ProjectData].sort((a, b) => b.period.end - a.period.end);
+    const featuredProject = ProjectData.filter((project) => project.featured).sort((a, b) => a.order - b.order);
+    const otherProjects = ProjectData.filter((project) => !project.featured).sort((a, b) => b.period.end - a.period.end);
+    const sortedProjects = [...featuredProject, ...otherProjects]; // 정렬된 리스트
 
-    // 현재 프로젝트 가져오기
     const project = sortedProjects.find(p => p.id === Number(id));
-
-    // 모달창 상태
     const [modalOpen, setModalOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    // 프로젝트 없을 시
+    function goToSite () {window.open(project.siteLink, '_blank')}
+    function goToGithub () {window.open(project.githubLink, '_blank')}
+
+    // const currentIndex = ProjectData.findIndex(p => p.id === Number(id))
+    // const prevProject = ProjectData[currentIndex - 1]
+    // const nextProject = ProjectData[currentIndex + 1]
+
     if (!project) {
         return <div>해당 프로젝트를 찾을 수 없습니다.</div>;
     }
 
-    // 모달 열기/닫기 사진 이전/다음
+    const currentIndex = sortedProjects.findIndex((p) => p.id === Number(id));
+    const prevProject = currentIndex > 0 ? sortedProjects[currentIndex - 1] : null;
+    const nextProject = currentIndex < sortedProjects.length - 1 ? sortedProjects[currentIndex + 1] : null;
+
+
+    // 모달
     const openModal = (index) => {
         setCurrentImageIndex(index);
         setModalOpen(true);
@@ -52,12 +58,6 @@ function ProjectDetail() {
             setCurrentImageIndex(prevIndex => prevIndex + 1);
         }
     };
-    
-    // 프로젝트 이전/다음 버튼
-    const currentIndex = sortedProjects.findIndex((p) => p.id === Number(id));
-    const prevProject = currentIndex > 0 ? sortedProjects[currentIndex - 1] : null;
-    const nextProject = currentIndex < sortedProjects.length - 1 ? sortedProjects[currentIndex + 1] : null;
-
 
 
     return(
@@ -122,10 +122,10 @@ function ProjectDetail() {
                     </li>
                 </ul>
                 {project.siteLink && (
-                    <BtnSite className='mr16' onClick={() => {window.open(project.siteLink, '_blank')}}><Text className="bold">사이트 가기</Text></BtnSite>
+                    <BtnSite className='mr16' onClick={goToSite}><Text className="bold">사이트 가기</Text></BtnSite>
                 )}
                 {project.githubLink && (
-                    <BtnSite onClick={()=>{window.open(project.githubLink, '_blank')}}><Text className="bold">깃허브 가기</Text></BtnSite>
+                    <BtnSite onClick={goToGithub}><Text className="bold">깃허브 가기</Text></BtnSite>
                 )}
             </ProjectInfo>
             
@@ -146,8 +146,7 @@ function ProjectDetail() {
 
             {project.detailImage &&
                 <ProjectGallery>
-                    <Title>갤러리</Title>
-                    <Text className="mb40">사진을 클릭하면 크게 볼 수 있어요.</Text>
+                    <Title className="mb40">갤러리</Title>
                     <ul>
                         {project.detailImage.map((ImageSrc, index) => (
                             <li key={index} className='mb24'>

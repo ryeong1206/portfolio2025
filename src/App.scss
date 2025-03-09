@@ -22,7 +22,7 @@ ul, li{
   list-style: none;
 }
 body{
-  background-color: #222;
+  background-color: #111;
   padding: 4rem;
   box-sizing: border-box;
   @media (max-width: 1200px) {
@@ -43,6 +43,12 @@ img{
 }
 
 //
+.mb80{
+  margin-bottom: 7rem;
+  @media (max-width: 768px) {
+    margin-bottom: 4rem;
+  }
+}
 .mb80{
   margin-bottom: 5rem;
   @media (max-width: 768px) {
@@ -83,4 +89,17 @@ img{
   @media (max-width: 768px) {
     padding-top: 2rem;
   }
+}
+
+.Col12{
+  width: 100%;
+}
+.Col6{
+  width: 49.33%;
+}
+
+.flx{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

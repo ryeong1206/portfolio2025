@@ -15,8 +15,7 @@ export const ProjectInfo = styled.div`
         display: flex;
         justify-contexts: start;
         :first-child{
-            min-width: 7.5rem;
-            margin-right: 1rem;
+            min-width: 8.5rem;
         }
     }
     .titleSection{
@@ -29,7 +28,7 @@ export const ProjectInfo = styled.div`
     @media (max-width: 768px) {
         li{
             :first-child{
-                min-width: 4rem;
+                min-width: 5.5rem;
             }
         }
     }
@@ -80,9 +79,6 @@ export const ProjectNavigation = styled.nav`
     align-items: center; 
     width: 100%;
     padding: 20px 0;
-    // a{
-    //     width: 48.32%;
-    // }
 
     .left {
         text-align: left;

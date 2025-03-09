@@ -2,22 +2,35 @@ import styled from "styled-components";
 
 
 export const Inner = styled.div`
+    position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1720px;
     height: 100%;
     min-height: 90vh;
     padding: 2.5rem;
     background-color: #F0F1E6;
     overflow-x: hidden;
     margin: 0 auto;
-    
-    // @media (max-width: 1200px) and (min-width: 768px) {
-        // padding: 2.5rem;
-    // }
+    &.home{
+        background-color: #55B6FF;
+    }
+
     @media (max-width: 768px){
         padding: 1.5rem;
     }
 `;
+
+export const HomeMemo = styled.div`
+    width: 30rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2.5rem;
+
+    @media (max-width: 768px){
+        padding: 1.5rem;
+    }
+`
 
 
 export const Header = styled.div`
@@ -26,9 +39,6 @@ export const Header = styled.div`
     margin-bottom: 2.5rem;
     display: flex;
     justify-content: space-between;
-`
-export const Col12 = styled.div`
-    width: 100%;
 `
 
 
@@ -44,7 +54,7 @@ export const Title = styled.p`
 //서브타이틀
 export const SubTitle = styled.p`
     font-size: 2.5rem;
-    font-weight: 400;
+    font-weight: 300;
     &.bold{
         font-weight: 700;
     }
@@ -56,7 +66,7 @@ export const SubTitle = styled.p`
 // 본문
 export const Text = styled.p`
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 300;
     &.bold{
         font-weight: 700;
         }
@@ -69,8 +79,8 @@ export const Text = styled.p`
 
 // 프로젝트 보기 버튼
 export const BtnProject = styled.button`
+    background-color: #FF95EA;
     &:hover{
-        background-color: #FF95EA;
     }
 `
 // 사이트 가기 버튼
@@ -126,19 +136,21 @@ export const MarkWrapper = styled.p` // 진행중 표시
     }
 `
 export const MarkItem = styled.p`
+    // position: reletive;
+    z-index: 2;
     width: 4rem;
     height: 4rem;
     background-repeat: no-repeat;
     background-size: contain;
 
     &.MarkProgress{
-        background-image: url(/image/mark-progress.png);
+        background-image: url(${process.env.PUBLIC_URL}/image/mark-progress.png);
     }
     &.MarkTeam{
-        background-image: url(/image/mark-team.png);
+        background-image: url(${process.env.PUBLIC_URL}/image/mark-team.png);
     }
     &.MarkPersonal{
-        background-image: url(/image/mark-personal.png);
+        background-image: url(${process.env.PUBLIC_URL}/image/mark-personal.png);
     }
     
     @media (max-width: 768px) {

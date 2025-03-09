@@ -15,14 +15,12 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalContent = styled.div`
+  width: 70%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
   max-height: 85vh;
-  // overflow: hidden;
-  // border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +28,6 @@ const ModalContent = styled.div`
 
 const ImageWrapper = styled.div`
   width: 100%;
-  // height: 100%;
   max-height: 85vh;
   overflow: auto;
   display: flex;

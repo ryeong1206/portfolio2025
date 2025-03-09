@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/ryeong1206/portfolio2025.git",
+  "homepage": "https://ryeong1206.github.io/portfolio2025",
   "name": "portfolio2025",
   "version": "0.1.0",
   "private": true,
@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

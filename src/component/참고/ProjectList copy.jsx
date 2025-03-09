@@ -1,19 +1,19 @@
-import { BtnArrow, BtnSite, MarkWrapper, MarkItem, SubTitle, Text } from "../styles/Styles"
-import { ProjectInfo, ProjectPreview } from "./ProjectStyles"
+import { BtnArrow, BtnSite, MarkWrapper, MarkItem, SubTitle, Text } from "../../styles/Styles"
+import { ProjectInfo, ProjectPreview } from "../ProjectStyles"
 import { Link, useNavigate } from "react-router-dom"
 
 import '../App.scss'
 
-// 날짜 표기기
+
 const formatDate = (date) => {
     const year = String(date.getFullYear() - 2000).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2);
     return (`${year}년 ${month}월`)
 }
 
-
-// 아이템
 export function Item({project}) {
+    function goToSite () {window.open(project.siteLink, '_blank')}
+
     return (
         <div className="Item mb80">
             <Link to={`/ProjectDetail/${project.id}`}>
@@ -24,6 +24,7 @@ export function Item({project}) {
                     </MarkWrapper>
                     <img src={project.mainImage} alt="previewImage" />
                 </ProjectPreview>
+                
                 <ProjectInfo>
                     <div className="titleSection mb24">
                         <SubTitle className="bold">{project.title}</SubTitle>
@@ -46,7 +47,7 @@ export function Item({project}) {
                         </li> */}
                     </ul>
                     {project.siteLink && (
-                        <BtnSite onClick={()=>{window.open(project.siteLink, '_blank')}}><Text className="bold">사이트 가기</Text></BtnSite>
+                        <BtnSite onClick={goToSite}><Text className="bold">사이트 가기</Text></BtnSite>
                     )}
                 </ProjectInfo>
             </Link>
@@ -54,10 +55,10 @@ export function Item({project}) {
     )
 }
 
-
-// 리스트트
 function ProjectList({projects}) {
-    const sortProject = [...projects].sort((a, b) => b.period.end - a.period.end);
+    const featuredProject = projects.filter((project) => project.featured).sort((a, b) => a.order - b.order);
+    const otherProjects = projects.filter((project) => !project.featured).sort((a, b) => b.period.end - a.period.end)
+    const sortProject = [...featuredProject, ...otherProjects];
 
     return (
         <div>
