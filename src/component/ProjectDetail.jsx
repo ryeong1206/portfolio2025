@@ -69,15 +69,15 @@ function ProjectDetail() {
             <Title className="bold mb24">{project.title}</Title>
 
             <ProjectPreview className="mb40">
-                <MarkWrapper>
-                    {!project.complete && <MarkItem className="MarkProgress mr16"/>}
-                    {project.isTeam ? <MarkItem className="MarkTeam"/> : <MarkItem className="MarkPersonal"/>}
-                </MarkWrapper>
                 <img src={project.mainImage} alt="previewImage" />
             </ProjectPreview>
 
             <ProjectInfo className="mb80">
-                <ul className="mb40">
+                <MarkWrapper className="mb40">
+                    {!project.complete && <MarkItem className="MarkProgress mr16"/>}
+                    {project.isTeam ? <MarkItem className="MarkTeam"/> : <MarkItem className="MarkPersonal"/>}
+                </MarkWrapper>
+                <ul className="">
                     <li className="mb16">
                         <Text className="bold">작업유형</Text>
                         <Text>{project.type}</Text>
@@ -146,8 +146,7 @@ function ProjectDetail() {
 
             {project.detailImage &&
                 <ProjectGallery>
-                    <Title>갤러리</Title>
-                    <Text className="mb40">사진을 클릭하면 크게 볼 수 있어요.</Text>
+                    <Title className='mb40'>갤러리</Title>
                     <ul>
                         {project.detailImage.map((ImageSrc, index) => (
                             <li key={index} className='mb24'>

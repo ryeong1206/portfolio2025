@@ -301,7 +301,7 @@ const ProjectData = [
     // 2025 포트폴리오
     createProject({
         id: 9,
-        complete: true,
+        complete: false,
         featured: true,
         order: 1,
         title: '2025 웹 포트폴리오',

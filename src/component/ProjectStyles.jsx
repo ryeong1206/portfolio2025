@@ -1,7 +1,20 @@
 import styled from "styled-components";
 
-export const ProjectPreview = styled.div`
+
+
+
+export const ListItem = styled.div`
+
+`
+
+export const List = styled.div`
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+`
+
+export const ProjectPreview = styled.div`
     position: relative;
     img{
         width: 100%;
@@ -9,19 +22,18 @@ export const ProjectPreview = styled.div`
 `
 
 export const ProjectInfo = styled.div`
-    width: 100%;
     position: relative;
     li{
         display: flex;
         justify-contexts: start;
         :first-child{
-            min-width: 8.5rem;
+            min-width: 7rem;
         }
     }
     .titleSection{
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: top;
         gap: 1rem;
     }
     
